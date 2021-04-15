@@ -1,10 +1,17 @@
 import Head from "next/head";
+import { useState } from "react";
+import Checkbox from "../components/Checkbox";
+import Moon from "../components/icons/Moon";
 import Search from "../components/icons/Search";
+import Sun from "../components/icons/Sun";
 import PrimaryButton from "../components/PrimaryButton";
 import SecondaryButton from "../components/SecondaryButton";
 import Text from "../components/Text";
+import Toggle from "../components/Toggle";
 
 export default function Home() {
+  const [enabled, setEnabled] = useState(false);
+
   return (
     <div className="dark:bg-theme-very-dark-blue">
       <Head>
@@ -26,6 +33,17 @@ export default function Home() {
           placeholder="Enter desired job..."
           leadingIcon={<Search />}
         />
+
+        <Toggle
+          state={enabled}
+          setState={setEnabled}
+          leftLabel={<Sun />}
+          rightLabel={<Moon />}
+        />
+      </div>
+
+      <div className="bg-white">
+        <Checkbox id="test" name="test" label="Checkbox" />
       </div>
     </div>
   );
