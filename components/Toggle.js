@@ -1,9 +1,18 @@
 import { Switch } from "@headlessui/react";
 import classNames from "../utils/ClassNames";
 
-export default function Toggle({ state, setState, leftLabel, rightLabel }) {
+export default function Toggle({
+  state,
+  setState,
+  leftLabel,
+  rightLabel,
+  className,
+}) {
   return (
-    <Switch.Group as="div" className="flex items-center space-x-4">
+    <Switch.Group
+      as="div"
+      className={classNames(className, "flex items-center space-x-4")}
+    >
       {leftLabel && (
         <Switch.Label as="span" passive>
           {leftLabel}
